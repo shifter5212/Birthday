@@ -124,9 +124,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener("click", function () {
-    const music = document.getElementById("bgmusic");
-    if (music.paused) {
-        music.play();
-    }
-}, { once: true });
+function startAudio() {
+  const audio = document.getElementById("bgmusic");
+  audio.play().then(() => {
+    mess.remove();
+  }).catch((err) => {
+    console.log("Audio blocked:", err);
+  });
+
+  document.body.onclick = null;
+}
