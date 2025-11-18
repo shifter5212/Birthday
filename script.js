@@ -124,3 +124,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener("click", function () {
+    const music = document.getElementById("bgmusic");
+    if (music.paused) {
+        music.play();
+    }
+}, { once: true });
